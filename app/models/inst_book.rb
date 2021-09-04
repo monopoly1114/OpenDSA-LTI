@@ -44,6 +44,19 @@ class InstBook < ApplicationRecord
     options['zeropt_assignments'] = book_data['zeropt_assignments'] || false
     options['glob_exer_options'] = book_data['glob_exer_options'] || {}
 
+    # additional theme support keys
+    # copy all of these, if they exist, from incoming JSON
+    [
+      'theme',
+      'html_theme_options',
+      'html_css_files',
+      'html_js_files'
+    ].each do |k|
+      if book_data[k]
+        options[k] = book_data[k]
+      end
+    end
+
     if inst_book_id == nil
       b = InstBook.new
       b.user_id = current_user.id
