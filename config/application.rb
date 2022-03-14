@@ -30,6 +30,9 @@ module OpenDSA
     # configure delayed job system
     config.active_job.queue_adapter = :delayed_job
 
+    # zeitwork mode for loading defaults
+    config.load_defaults 6.0
+
     # disable SSL check during development
     #if Rails.env.development?
     #  OpenSSL::SSL.const_set(:VERIFY_PEER, OpenSSL::SSL::VERIFY_NONE)

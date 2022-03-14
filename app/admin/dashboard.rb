@@ -4,6 +4,17 @@ ActiveAdmin.register_page 'Dashboard' do
 
   content title: 'Administrator Dashboard' do
 
+    action_item :git_pull, method: :get do
+      if authorized? :git_pull
+        exec "cd /home/deploy/opendsa-devstack/opendsa && git pull"
+        exec "cd /home/deploy/opendsa-devstack/opendsa && touch flag.txt"
+        flash[:success] = "Started git pull in the OpenDSA repository"
+      else
+        flash[:error] = "not authorized"
+      end
+      redirect_to admin_inst_books_path
+    end
+
     panel 'Recent Errrors' do
       table_for Error.order('created_at desc').first(6) do
         column :class_name
