@@ -1,4 +1,3 @@
-daemonize false
 debug
 port 8443
 

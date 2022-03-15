@@ -2,24 +2,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   #~ Instance methods .........................................................
 
-  # -------------------------------------------------------------
-  def facebook
-    internal_auth('Facebook')
-  end
-
-
-  # -------------------------------------------------------------
-  def google_oauth2
-    internal_auth('Google')
-  end
-
-
-  # -------------------------------------------------------------
-  def cas
-    internal_auth('VT CAS')
-  end
-
-
   #~ Private instance methods .................................................
   private
 

@@ -257,14 +257,14 @@ Devise.setup do |config|
 
   # Omniauth authentication for Facebook, Gmail etc
   #
-    config.omniauth :facebook,
-      Rails.application.secrets[:facebook_id],
-      Rails.application.secrets[:facebook_secret]
-    config.omniauth :google_oauth2,
-      Rails.application.secrets[:google_id],
-      Rails.application.secrets[:google_secret]
-    config.omniauth :cas,
-      url: 'https://auth.vt.edu'
+    # config.omniauth :facebook,
+    #   Rails.application.secrets[:facebook_id],
+    #   Rails.application.secrets[:facebook_secret]
+    # config.omniauth :google_oauth2,
+    #   Rails.application.secrets[:google_id],
+    #   Rails.application.secrets[:google_secret]
+    # config.omniauth :cas,
+    #   url: 'https://auth.vt.edu'
   #
 
   # ==> Mountable engine configurations

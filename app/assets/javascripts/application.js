@@ -15,8 +15,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap-sprockets
-//= require bootstrap-editable
-//= require bootstrap-editable-rails
 //= require js-routes
 //= require bootstrap-wysihtml5
 //= require cocoon

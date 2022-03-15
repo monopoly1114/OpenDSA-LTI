@@ -1,6 +1,5 @@
 workers 4
 threads 8, 8
-daemonize false
 port 8443
 
 app_dir = File.expand_path('../..', __FILE__)
