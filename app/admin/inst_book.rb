@@ -94,7 +94,7 @@ ActiveAdmin.register InstBook, sort_order: :created_at_asc do
     end
 
     def upload_books
-      if !current_user.global_role.is_admin? and !current_user.global_role.is_instructor?
+      if !current_user.global_role.is_admin? and !current_user.global_role.is_instructor? and !current_user.global_role.is_researcher?
         redirect_to admin_inst_books_path
       end
     end

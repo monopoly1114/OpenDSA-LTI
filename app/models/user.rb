@@ -72,7 +72,7 @@ class User < ApplicationRecord
   after_save :update_lms_access
 
   def update_lms_access
-    if self.global_role.is_instructor? or self.global_role.is_admin?
+    if self.global_role.is_instructor? or self.global_role.is_admin? or self.global_role.is_researcher?
         lms_access = LmsAccess.where("user_id = ?", self.id).first
       if !lms_access
           lms_access = LmsAccess.new(
@@ -193,7 +193,7 @@ class User < ApplicationRecord
   def courses_for_term(term)
     Course.
       joins(course_offerings: { course_enrollments: :user }).
-      where('course_offerings.term_id' => term, 'users.id' => self).
+      where('course_offerings.term_id' => term, 'user.id' => self).
       distinct
   end
 
