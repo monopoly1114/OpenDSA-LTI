@@ -11,6 +11,7 @@
  *= require jquery-ui
  *= require bs
  *= require bootstrap-wysihtml5
+ *= require formtastic
  *= require font-awesome
  *= require custom
  *= require book
