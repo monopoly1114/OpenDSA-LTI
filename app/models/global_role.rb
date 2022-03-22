@@ -97,6 +97,11 @@ class GlobalRole < ApplicationRecord
   end
 
   # -------------------------------------------------------------
+  def is_admin_or_researcher?
+    return id == ADMINISTRATOR_ID || id == RESEARCHER_ID
+   end
+
+  # -------------------------------------------------------------
   def is_instructor_or_admin_or_researcher?
     return id == ADMINISTRATOR_ID || id == INSTRUCTOR_ID || id == RESEARCHER_ID
   end
