@@ -1,4 +1,9 @@
 ActiveAdmin.register_page 'Update OpenDSA' do
+  menu if: proc{ current_user.global_role.is_admin_or_researcher? }
+
+  content do
+    para "This command will run git pull in the OpenDSA repository, be careful as this action may break content for other users"
+  end
 
   page_action :compile, method: :post do
     redirect_to compile_update_opendsa_path, notice: "OpenDSA was updated"
@@ -11,8 +16,7 @@ ActiveAdmin.register_page 'Update OpenDSA' do
   controller do
     def compile
       if authorized? :update_configuration
-        exec "cd /home/deploy/opendsa-devstack/opendsa && git pull"
-        exec "cd /home/deploy/opendsa-devstack/opendsa && touch flag.txt"
+        exec "cd /opendsa && git pull"
         flash[:success] = "Updated OpenDSA Repository"
       else
         flash[:error] = "not authorized"
